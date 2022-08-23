@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'share-tech-mono';
+    src: url('fonts/Share_Tech_Mono/ShareTechMono-Regular.ttf');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'share-tech-mono';
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+header {
+    text-align: center;
+    font-size: 0.5em;
+    margin:0;
+    padding:0;
+}
+
+.display-container {
+    display: flex;
+    background-color: lightgray;
+}
+
+.display {
+}
+
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.row-container {
+    display: flex;
+}
+
+button { 
+    font-family: inherit;
+    font-size: 1em;
+}
+
