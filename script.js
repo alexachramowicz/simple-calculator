@@ -14,6 +14,10 @@ function divide(a,b) {
     return a/b;
 }
 
+function sqrt(a,b) {
+
+}
+
 function operate(operator,a,b) {
     let value;
     // check for Number()?
@@ -31,3 +35,15 @@ function operate(operator,a,b) {
     }
 
 }
+
+const calcContainer = document.querySelector('.calculator-container');
+const operandButtons = document.querySelectorAll('.operand-btn');
+
+operandButtons.forEach(operandButton => { 
+    operandButton.addEventListener('click', () => { 
+        console.log(operandButton.textContent);
+    });
+});
+
+
+const operatorButton = document.querySelectorAll('.operator-btn');
