@@ -41,7 +41,6 @@ function binaryOperate(operator,a,b) {
     switch(operator) {
         case 'add':
             value = add(a,b);
-            console.log(value);
             break;
         case 'subtract':
             value = subtract(a,b);
@@ -58,6 +57,18 @@ function binaryOperate(operator,a,b) {
     return value;
 }
 
+function calculateOperand() {
+
+}
+
+// Clear display and all values from variables
+function clear() {
+    firstOperand = null;
+    secondOperand = null;
+    operator = null;
+    displayContent.textContent = null;
+}
+
 const calcContainer = document.querySelector('.calculator-container');
 const operandButtons = document.querySelectorAll('.operand-btn');
 const displayContent = document.querySelector('#display');
@@ -65,16 +76,31 @@ const operatorButtons = document.querySelectorAll('.operator-btn');
 const equalsButton = document.querySelector('#equals-btn')
 const clearButton = document.querySelector('#clear-btn');
 
-let firstOperand, secondOperand, operator;
+let firstOperand, secondOperand, operator, result;
+let resultFlag = false;
 
 operandButtons.forEach(operandButton => { 
     operandButton.addEventListener('click', () => { 
-        if(!firstOperand) {
-            firstOperand = parseInt(operandButton.value);
-        } else {
-            secondOperand = parseInt(operandButton.value);
+        const operand = operandButton.value;
+        // Assign or re-assign the firstOperand
+        if(!firstOperand || (resultFlag && !operator)) {
+            firstOperand = operand;
+            displayContent.textContent = firstOperand;
+            resultFlag = false;
+            console.log("case 1");
+        } else if(firstOperand && !operator && !secondOperand) {
+            firstOperand += operand;
+            displayContent.textContent = firstOperand;
+            console.log("case 2");
+        } else if (firstOperand && operator && !secondOperand){
+            secondOperand = operand;
+            displayContent.textContent = secondOperand;
+            console.log("case 3");
+        } else {   
+            secondOperand += operand;
+            displayContent.textContent = secondOperand;
+            console.log("case 4");
         }
-        displayContent.textContent = operandButton.value;
     });
 });
 
@@ -85,7 +111,19 @@ operatorButtons.forEach(operatorButton => {
 });
 
 equalsButton.addEventListener('click', () => {
-    const value = binaryOperate(operator, firstOperand, secondOperand);
+    let value = binaryOperate(operator, parseInt(firstOperand), parseInt(secondOperand));
     console.log(firstOperand + operator + secondOperand + '=' + value);
-    displayContent.textContent = value;
+
+    if(!isFinite(value)) {
+        displayContent.textContent = 'Error';
+        firstOperand = null;
+    } else {
+        firstOperand = value;
+        displayContent.textContent = firstOperand;
+    }
+    resultFlag = true;
+    secondOperand = null;
+    operator = null;
 })
+
+clearButton.addEventListener('click', clear); 
