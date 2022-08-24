@@ -1,26 +1,15 @@
 Functionality
--case 1: operand-operator-operand-equals-value
-    -default
--case 2: operand-operator-operand-operater-operand-value
-    -equation with multiple operators
-    -should evaluate the first operation, then use that as 
-     the input into the second operation and so on
--case 3: operand-operand-...
-    -double click an operand
-    -should store a n-length number in firstOperand
--case 4: operand-operator-operator-...
-    -double click an operator
-    -should evaluate as case 1 using most recent operator
--case 5:
+-new case: operand-operator-operant-operator
+    -should evaluate the first operation then use the
+     output of that into the input of the next operator
+-add unary operator?
+-add decimals? 
+    -need to check how we're passing parameters to 
+     binaryOperate()
 
-
-Additions
+UI
 -highlight an operator button when clicked and waiting 
  for secondOperand
 -better the UI
     -round edges for containers
     -add gap and padding/margin b/w buttons
--add functionality for unary operator?
--add functionality for decimals? 
-    -need to check how we're passing parameters to 
-     binaryOperate()
