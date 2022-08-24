@@ -87,19 +87,15 @@ operandButtons.forEach(operandButton => {
             firstOperand = operand;
             displayContent.textContent = firstOperand;
             resultFlag = false;
-            console.log("case 1");
         } else if(firstOperand && !operator && !secondOperand) {
             firstOperand += operand;
-            displayContent.textContent = firstOperand;
-            console.log("case 2");
+            displayContent.textContent = firstOperand;;
         } else if (firstOperand && operator && !secondOperand){
             secondOperand = operand;
             displayContent.textContent = secondOperand;
-            console.log("case 3");
         } else {   
             secondOperand += operand;
             displayContent.textContent = secondOperand;
-            console.log("case 4");
         }
     });
 });
