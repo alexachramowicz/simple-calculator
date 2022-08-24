@@ -13,78 +13,39 @@
             <h1>413X</h1>
         </header>
         <div class="display-container">
-            <span id="display">8008</span>
+            <span id="display"></span>
         </div>
         <div class="calculator-container">
             <div class="row-container">
-                <button class="operator-btn">
-                    <span id="off-btn">O</span>
-                </button>
-                <button class="operator-btn">
-                    <span id="clear-btn">C</span>
-                </button>
-                <button class="operator-btn">
-                    <span class="sqrt-btn">&radic;</span>
-                </button>
-                <button class="operator-btn">
-                    <span class="remainder-btn">%</span>
+                <button class="operator-btn" value="off">0</button>
+                <button id="clear-btn" value="clear">C</button>
+                <button class="operator-btn" value="sqrt">&radic;</button>
+                <button class="operator-btn" value="remainder">%</button>
+            </div>
+            <div class="row-container">
+                <button class="operand-btn" value="7">7</button>
+                <button class="operand-btn" value="8">8</button>
+                <button class="operand-btn" value="9">9</button>
+                <button class="operator-btn" value="multiply">&times;</button>
+            </div>
+            <div class="row-container">
+                <button class="operand-btn" value="4">4</button>
+                <button class="operand-btn" value="5">5</button>
+                <button class="operand-btn" value="6">6</button>
+                <button class="operator-btn" value="divide">&divide;</button>
                 </button>
             </div>
             <div class="row-container">
-                <button class="operand-btn">
-                    <span class="seven-btn">7</span>
-                </button>
-                <button class="operand-btn">
-                    <span class="eight-btn">8</span>
-                </button>
-                <button class="operand-btn">
-                    <span class="nine-btn">9</span>
-                </button>
-                <button class="operator-btn">
-                    <span class="multiply-btn">&times;</span>
-                </button>
+                <button class="operand-btn" value="1">1</button>
+                <button class="operand-btn" value="2">2</button>
+                <button class="operand-btn" value="3">3</button>
+                <button class="operator-btn" value="subtract">-</button>
             </div>
             <div class="row-container">
-                <button class="operand-btn">
-                    <span class="four-btn">4</span>
-                </button>
-                <button class="operand-btn">
-                    <span class="five-btn">5</span>
-                </button>
-                <button class="operand-btn">
-                    <span class="six-btn">6</span>
-                </button>
-                <button class="operator-btn">
-                    <span class="divide-btn">&divide;</span>
-                </button>
-            </div>
-            <div class="row-container">
-                <button class="operand -btn">
-                    <span class="one-btn">1</span>
-                </button>
-                <button class="operand-btn">
-                    <span class="two-btn">2</span>
-                </button>
-                <button class="operand-btn">
-                    <span class="three-btn">3</span>
-                </button>
-                <button class="operator-btn">
-                    <span class="subtract-btn">-</span>
-                </button>
-            </div>
-            <div class="row-container">
-                <button class="operand-btn">
-                    <span class="zero-btn">0</span>
-                </button>
-                <button class="operand-btn">
-                    <span class="decimal-btn">.</span>
-                </button>
-                <button class="operand-btn">
-                    <span class="equals-btn">=</span>
-                </button>
-                <button class="operator-btn">
-                    <span class="addition-btn">+</span>
-                </button>
+                <button class="operand-btn" value="0">0</button>
+                <button class="operand-btn" value="decimal">.</button>
+                <button id="equals-btn" value="equals">=</button>
+                <button class="operator-btn" value="add">+</button>
             </div>
         </div>
     </div>
