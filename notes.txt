@@ -1,11 +1,11 @@
 Functionality
--new case: operand-operator-operant-operator
-    -should evaluate the first operation then use the
-     output of that into the input of the next operator
--add unary operator?
--add decimals? 
+-add unary operator
+-add decimals?
     -need to check how we're passing parameters to 
      binaryOperate()
+-add UI update such that if the display overflows we:
+    -wrap it to a new line OR
+    -keep it on the same line and hide the beginning
 
 UI
 -highlight an operator button when clicked and waiting 

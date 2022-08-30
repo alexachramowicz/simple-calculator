@@ -7,39 +7,58 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'share-tech-mono';
-    font-size: 1.5em;
+    font-size: 62.5%;
     display: flex;
     justify-content: center;
+    background-color: #1E2022;
+}
+
+.main-container, .display-container{
+    border-radius: 0.5rem;
 }
 
 .main-container {
     display: flex;
     flex-direction: column;
-    align-content: center;
-    background-color: darkgray;
-    padding: 5px;
+    background-color: #D3E4CD;
+    padding: 1rem;
+    margin: 10rem;
 }
 
-header {
-    text-align: center;
-    font-size: 0.5em;
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0rem 1rem;
+}
+
+.main-container, .display-container, button {
+    border: 0.3rem solid #99A799;
+    color: #1E2022;
+}
+
+#model {
+    font-size: 3.5rem;
+}
+
+#make {
+    font-size: 2rem;
 }
 
 .display-container {
     display: flex;
-    background-color: lightgray;
-    align-items: center;
-    min-height: 1.2em;
-    margin: 5px 0px;
+    background-color: #FEF5ED;
+    margin: 1rem 1rem;
+    font-size: 5rem;
 }
 
-.display {
+#display {
+    margin: 0.5rem 0.5rem 0.5rem;
 }
 
 .calculator-container {
     display: flex;
     flex-direction: column;
-
 }
 
 .row-container {
@@ -47,7 +66,23 @@ header {
 }
 
 button { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     font-family: inherit;
-    font-size: 1em;
+    font-size: 4rem;
+    margin: 1rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 0.5rem;
+    background-color: #FEF5ED;
 }
 
+button:hover {
+    background-color: aliceblue;
+}
+
+.unary-operator-btn {
+    font-size: 3.25rem;
+}

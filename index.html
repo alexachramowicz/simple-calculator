@@ -9,18 +9,19 @@
 </head>
 <body>
     <div class="main-container">
-        <header>
-            <h1>413X</h1>
-        </header>
+        <div class="header-container">
+            <div id="model">413X</div>
+            <div id="make">AA Instruments</div>
+        </div>
         <div class="display-container">
-            <span id="display"></span>
+            <div id="display"></div>
         </div>
         <div class="calculator-container">
             <div class="row-container">
-                <button class="operator-btn" value="off">0</button>
                 <button id="clear-btn" value="clear">C</button>
-                <button class="operator-btn" value="sqrt">&radic;</button>
-                <button class="operator-btn" value="remainder">%</button>
+                <button class="unary-operator-btn" value="squared">x&#178;</button>
+                <button class="unary-operator-btn" value="sqrt">&radic;</button>
+                <button class="unary-operator-btn" value="percentage">%</button>
             </div>
             <div class="row-container">
                 <button class="operand-btn" value="7">7</button>
@@ -43,7 +44,7 @@
             </div>
             <div class="row-container">
                 <button class="operand-btn" value="0">0</button>
-                <button class="operand-btn" value="">.</button>
+                <button class="" value="">.</button>
                 <button id="equals-btn" value="equals">=</button>
                 <button class="operator-btn" value="add">+</button>
             </div>

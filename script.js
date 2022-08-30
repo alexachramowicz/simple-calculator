@@ -14,20 +14,31 @@ function divide(a,b) {
     return a/b;
 }
 
-// function sqrt(a) {
-//     return Math.sqrt(a);
-// }
+function sqrt(a) {
+    return Math.sqrt(a);
+}
 
-// function remainder(a,b) {
-//     return a%b;
-// }
+function percentage(a) {
+    return a * 0.01;
+}
+
+function squared(a) {
+    return a**2;
+}
 
 function unaryOperate(operator, a) {
     let value;
 
     switch(operator) {
-        case sqrt:
+        case 'sqrt':
             value = sqrt(a);
+            break;
+        case 'percentage':
+            value = percentage(a);
+            break;
+        case 'squared':
+            value = squared(a);
+            break;
         default:
             value = 0;
     }
@@ -57,8 +68,20 @@ function binaryOperate(operator,a,b) {
     return value;
 }
 
-function calculateOperand() {
+function calculate() {
+    let value = binaryOperate(operator, parseInt(firstOperand), parseInt(secondOperand));
+    console.log(firstOperand + operator + secondOperand + '=' + value);
 
+    if(!isFinite(value)) {
+        displayContent.textContent = 'Error';
+        firstOperand = null;
+    } else {
+        firstOperand = value;
+        displayContent.textContent = firstOperand;
+    }
+    resultFlag = true;
+    secondOperand = null;
+    operator = null;
 }
 
 // Clear display and all values from variables
@@ -66,7 +89,7 @@ function clear() {
     firstOperand = null;
     secondOperand = null;
     operator = null;
-    displayContent.textContent = null;
+    displayContent.textContent = '_';
 }
 
 const calcContainer = document.querySelector('.calculator-container');
@@ -75,9 +98,12 @@ const displayContent = document.querySelector('#display');
 const operatorButtons = document.querySelectorAll('.operator-btn');
 const equalsButton = document.querySelector('#equals-btn')
 const clearButton = document.querySelector('#clear-btn');
+const unaryOperatorButtons = document.querySelectorAll('.unary-operator-btn')
 
 let firstOperand, secondOperand, operator, result;
 let resultFlag = false;
+
+displayContent.textContent = '_';
 
 operandButtons.forEach(operandButton => { 
     operandButton.addEventListener('click', () => { 
@@ -100,26 +126,29 @@ operandButtons.forEach(operandButton => {
     });
 });
 
+unaryOperatorButtons.forEach(unaryOperator => {
+    unaryOperator.addEventListener('click', () => {
+        if(firstOperand) {
+            operator = unaryOperator.value;
+            let value = unaryOperate(operator, firstOperand);
+            console.log(operator + firstOperand + '=' + value);
+            firstOperand = value;
+            displayContent.textContent = firstOperand;
+        } else {
+            clear();
+        }
+    })
+})
+
 operatorButtons.forEach(operatorButton => {
     operatorButton.addEventListener('click', () => {
+        if(operator && firstOperand && secondOperand) 
+            calculate();
+
         operator = operatorButton.value;
     });
 });
 
-equalsButton.addEventListener('click', () => {
-    let value = binaryOperate(operator, parseInt(firstOperand), parseInt(secondOperand));
-    console.log(firstOperand + operator + secondOperand + '=' + value);
-
-    if(!isFinite(value)) {
-        displayContent.textContent = 'Error';
-        firstOperand = null;
-    } else {
-        firstOperand = value;
-        displayContent.textContent = firstOperand;
-    }
-    resultFlag = true;
-    secondOperand = null;
-    operator = null;
-})
+equalsButton.addEventListener('click', calculate);
 
 clearButton.addEventListener('click', clear); 
