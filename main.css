@@ -86,3 +86,15 @@ button:hover {
 .unary-operator-btn {
     font-size: 3.25rem;
 }
+
+.operator-btn, .unary-operator-btn {
+    background-color: #93bc92;
+}
+
+#clear-btn {
+    background-color: #FFC090;
+}
+
+#clear-btn:hover {
+    background-color: aliceblue;
+}

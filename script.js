@@ -96,6 +96,8 @@ function calculateUnary(unaryOperator) {
             console.log(operator + firstOperand + '=' + value);
             firstOperand = value;
             displayContent.textContent = firstOperand;
+            resultFlag = true;
+            operator = null;
         } else {
             clear();
         }
@@ -115,8 +117,9 @@ function updateOperand(operandButton) {
             displayContent.textContent = firstOperand;;
         } else if (firstOperand && operator && !secondOperand){
             secondOperand = operand;
-            displayContent.textContent = secondOperand;
-        } else {   
+            displayContent.textContent = secondOperand; 
+        }
+        else {   
             secondOperand += operand;
             displayContent.textContent = secondOperand;
         }

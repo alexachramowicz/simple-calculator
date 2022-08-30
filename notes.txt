@@ -1,11 +1,10 @@
 Functionality
--add unary operator
--add decimals?
+-add decimals
     -need to check how we're passing parameters to 
      binaryOperate()
--add UI update such that if the display overflows we:
+-add update such that if the display overflows:
     -wrap it to a new line OR
-    -keep it on the same line and hide the beginning
+    -keep it on the same line and hide the beginning***
 
 UI
 -highlight an operator button when clicked and waiting 
