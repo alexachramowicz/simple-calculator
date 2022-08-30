@@ -84,6 +84,50 @@ function calculate() {
     operator = null;
 }
 
+function calculateUnary(unaryOperator) {
+    unaryOperator.addEventListener('click', () => {
+        if(firstOperand) {
+            operator = unaryOperator.value;
+            let value = unaryOperate(operator, firstOperand);
+            console.log(operator + firstOperand + '=' + value);
+            firstOperand = value;
+            displayContent.textContent = firstOperand;
+        } else {
+            clear();
+        }
+    })
+}
+
+function updateOperand(operandButton) {
+    operandButton.addEventListener('click', () => { 
+        const operand = operandButton.value;
+        // Assign or re-assign the firstOperand
+        if(!firstOperand || (resultFlag && !operator)) {
+            firstOperand = operand;
+            displayContent.textContent = firstOperand;
+            resultFlag = false;
+        } else if(firstOperand && !operator && !secondOperand) {
+            firstOperand += operand;
+            displayContent.textContent = firstOperand;;
+        } else if (firstOperand && operator && !secondOperand){
+            secondOperand = operand;
+            displayContent.textContent = secondOperand;
+        } else {   
+            secondOperand += operand;
+            displayContent.textContent = secondOperand;
+        }
+    });
+}
+
+function updateOperator(operatorButton) {
+    operatorButton.addEventListener('click', () => {
+        if(operator && firstOperand && secondOperand) 
+            calculate();
+
+        operator = operatorButton.value;
+    });
+}
+
 // Clear display and all values from variables
 function clear() {
     firstOperand = null;
@@ -105,50 +149,8 @@ let resultFlag = false;
 
 displayContent.textContent = '_';
 
-operandButtons.forEach(operandButton => { 
-    operandButton.addEventListener('click', () => { 
-        const operand = operandButton.value;
-        // Assign or re-assign the firstOperand
-        if(!firstOperand || (resultFlag && !operator)) {
-            firstOperand = operand;
-            displayContent.textContent = firstOperand;
-            resultFlag = false;
-        } else if(firstOperand && !operator && !secondOperand) {
-            firstOperand += operand;
-            displayContent.textContent = firstOperand;;
-        } else if (firstOperand && operator && !secondOperand){
-            secondOperand = operand;
-            displayContent.textContent = secondOperand;
-        } else {   
-            secondOperand += operand;
-            displayContent.textContent = secondOperand;
-        }
-    });
-});
-
-unaryOperatorButtons.forEach(unaryOperator => {
-    unaryOperator.addEventListener('click', () => {
-        if(firstOperand) {
-            operator = unaryOperator.value;
-            let value = unaryOperate(operator, firstOperand);
-            console.log(operator + firstOperand + '=' + value);
-            firstOperand = value;
-            displayContent.textContent = firstOperand;
-        } else {
-            clear();
-        }
-    })
-})
-
-operatorButtons.forEach(operatorButton => {
-    operatorButton.addEventListener('click', () => {
-        if(operator && firstOperand && secondOperand) 
-            calculate();
-
-        operator = operatorButton.value;
-    });
-});
-
+operandButtons.forEach(operandButton => updateOperand(operandButton));
+unaryOperatorButtons.forEach(unaryOperator => calculateUnary(unaryOperator));
+operatorButtons.forEach(operatorButton => updateOperator(operatorButton));
 equalsButton.addEventListener('click', calculate);
-
 clearButton.addEventListener('click', clear); 

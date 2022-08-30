@@ -10,6 +10,3 @@ Functionality
 UI
 -highlight an operator button when clicked and waiting 
  for secondOperand
--better the UI
-    -round edges for containers
-    -add gap and padding/margin b/w buttons
