@@ -42,6 +42,8 @@ function unaryOperate(operator, a) {
         default:
             value = 0;
     }
+    if(!isInt(value))
+        value = value.toFixed(5);
     return value;
 }
 
@@ -65,6 +67,8 @@ function binaryOperate(operator,a,b) {
         default:
             value = 0;
     }
+    if(!isInt(value))
+        value = value.toFixed(5);
     return value;
 }
 
@@ -128,12 +132,16 @@ function updateOperator(operatorButton) {
     });
 }
 
+function isInt(n) {
+    return n%1 === 0;
+}
+
 // Clear display and all values from variables
 function clear() {
     firstOperand = null;
     secondOperand = null;
     operator = null;
-    displayContent.textContent = '_';
+    displayContent.textContent = '0';
 }
 
 const calcContainer = document.querySelector('.calculator-container');
@@ -147,7 +155,7 @@ const unaryOperatorButtons = document.querySelectorAll('.unary-operator-btn')
 let firstOperand, secondOperand, operator, result;
 let resultFlag = false;
 
-displayContent.textContent = '_';
+displayContent.textContent = '0';
 
 operandButtons.forEach(operandButton => updateOperand(operandButton));
 unaryOperatorButtons.forEach(unaryOperator => calculateUnary(unaryOperator));
